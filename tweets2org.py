@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-05-20 00:45:06 vk>
+# Time-stamp: <2013-05-20 01:28:00 vk>
 
 ## TODO:
 ## * fix parts marked with «FIXXME»
@@ -27,7 +27,7 @@ import pdb
 
 PROG_VERSION_NUMBER = u"0.1"
 PROG_VERSION_DATE = u"2013-05-19"
-INVOCATION_TIME = time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime())
+INVOCATION_TIME = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
 USAGE = u"\n\
     " + sys.argv[0] + u" [<options>] <list of JSON files>\n\
@@ -35,13 +35,9 @@ USAGE = u"\n\
 This tool FIXXME\n\
 \n\
 \n\
-Example usages:\n\
-  " + sys.argv[0] + u" --tags=\"presentation projectA\" *.pptx\n\
-      ... adds the tags \"presentation\" and \"projectA\" to all PPTX-files\n\
-  " + sys.argv[0] + u" -i *\n\
-      ... ask for tag(s) and add them to all files in current folder\n\
-  " + sys.argv[0] + u" -r draft *report*\n\
-      ... removes the tag \"draft\" from all files containing the word \"report\"\n\
+Example usage:\n\
+  " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps="+1"\n\
+      ... converts the Twitter export files and adds one hour to time stamps\n\
 \n\
 \n\
 :copyright: (c) 2013 by Karl Voit <tools@Karl-Voit.at>\n\
@@ -162,6 +158,8 @@ def format_entry(time_stamp, tweetid, name, reply_to, text):
     """
 
     if reply_to:
+        ## NOTE: I can not easily get the tweet URL only with the tweet ID and without user name:
+        ## https://dev.twitter.com/docs/api/1.1/get/statuses/show/%3Aid
         reply_to_string = " a reply to [[id:tweet" + reply_to + "][tweet]]"
     else:
         reply_to_string = u''
@@ -190,7 +188,7 @@ def handle_file(filename, outputhandle, timestamp_delta):
     firstline = True
     json_string = u''
 
-    logging.debug("reading JSON data from file \"%s\" ..." % filename)
+    logging.debug("reading JSON data from file: \"%s\" ..." % filename)
     for line in codecs.open(filename, 'r', encoding='utf-8'):
 
         ## read in every line except first line (Twitter data is JavaScript, not JSON.) to convert it to JSON
@@ -200,7 +198,7 @@ def handle_file(filename, outputhandle, timestamp_delta):
         else:
             json_string += line
 
-    logging.debug("reading file \"%s\" finished")
+    logging.debug("reading file finished: \"%s\"" % filename)
 
     logging.debug("parsing JSON data ...")
     json_data = json.loads(json_string)
@@ -209,7 +207,8 @@ def handle_file(filename, outputhandle, timestamp_delta):
     for tweet in json_data:
         
         tweetid = str(tweet["id"])
-        text = tweet["text"]
+        text = tweet["text"].replace("&amp;",u"&").replace("&gt;",u">").replace("&lt;",u"<").replace('\n',u"⏎")
+
         created_at = tweet["created_at"]
         name = tweet["user"]["name"]
 
