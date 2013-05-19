@@ -1,0 +1,36 @@
+## Time-stamp: <2013-05-20 01:44:05 vk>
+## -*- coding: utf-8 -*-
+## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
+
+* tweets2org.py
+
+This python script converts the [[https://blog.twitter.com/2012/your-twitter-archive][Twitter export files]] ([[https://en.wikipedia.org/wiki/Json][JSON format]]) into
+an [[http://orgmode.org][Org-mode]] file.
+
+Short URLs are replaced with their expanded URLs, many things are turned
+into meaningful links where possible.
+
+Example usage:
+: tweets2org.py -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps="+1"
+... converts the Twitter export files and adds one hour to time stamps
+
+For all command line options, please call: ~tweets2org.py --help~
+
+- *Target group*: users who are using Twitter and Emacs Org-mode
+- Hosted on github: https://github.com/novoid/twitter-json_to_orgmode
+
+
+* Contribute!
+
+I am looking for your ideas!
+
+If you want to contribute to this cool project, please fork and
+contribute!
+
+
+* Local Variables                                                  :noexport:
+# Local Variables:
+# mode: auto-fill
+# mode: flyspell
+# eval: (ispell-change-dictionary "en_US")
+# End:

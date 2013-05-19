@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-05-20 01:39:18 vk>
+# Time-stamp: <2013-05-20 01:40:33 vk>
 
 ## TODO:
 ## * fix parts marked with «FIXXME»
@@ -39,7 +39,7 @@ Example usage:\n\
   " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps=\"+1\"\n\
       ... converts the Twitter export files and adds one hour to time stamps\n\
 \n\
-For all command line options, please call: " + sys.argv[0] + u"--help\n\
+For all command line options, please call: " + sys.argv[0] + u" --help\n\
 \n\
 \n\
 :copyright: (c) 2013 by Karl Voit <tools@Karl-Voit.at>\n\
