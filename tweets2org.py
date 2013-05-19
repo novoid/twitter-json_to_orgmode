@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-05-20 01:28:00 vk>
+# Time-stamp: <2013-05-20 01:29:32 vk>
 
 ## TODO:
 ## * fix parts marked with «FIXXME»
@@ -23,10 +23,10 @@ import codecs
 from optparse import OptionParser
 
 ## debugging:   for setting a breakpoint:  pdb.set_trace()
-import pdb
+#import pdb
 
 PROG_VERSION_NUMBER = u"0.1"
-PROG_VERSION_DATE = u"2013-05-19"
+PROG_VERSION_DATE = u"2013-05-20"
 INVOCATION_TIME = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 
 USAGE = u"\n\
@@ -36,7 +36,7 @@ This tool FIXXME\n\
 \n\
 \n\
 Example usage:\n\
-  " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps="+1"\n\
+  " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps=\"+1\"\n\
       ... converts the Twitter export files and adds one hour to time stamps\n\
 \n\
 \n\
