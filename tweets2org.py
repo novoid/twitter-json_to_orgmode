@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-05-20 01:40:33 vk>
+# Time-stamp: <2013-05-20 01:52:36 vk>
 
 ## TODO:
 ## * fix parts marked with «FIXXME»
@@ -183,13 +183,13 @@ def handle_file(filename, outputhandle, timestamp_delta):
         logging.warning("Skipping directory \"%s\" because this tool only parses files." % filename)
         return
     elif not os.path.isfile(filename):
-        logging.error("Skipping non-file \"%s\" because this tool only parses files." % filename)
+        logging.warning("Skipping non-file \"%s\" because this tool only parses files." % filename)
         return
 
     firstline = True
     json_string = u''
 
-    logging.debug("reading JSON data from file: \"%s\" ..." % filename)
+    logging.info("reading JSON data from file: \"%s\" ..." % filename)
     for line in codecs.open(filename, 'r', encoding='utf-8'):
 
         ## read in every line except first line (Twitter data is JavaScript, not JSON.) to convert it to JSON
@@ -290,7 +290,7 @@ def main():
 
     logging.debug("closed outfile \"%s\"" % options.outputfile)
 
-    logging.debug("successfully finished.")
+    logging.debug("successfully generated \"%s\"." % options.outputfile)
 
 
 if __name__ == "__main__":
