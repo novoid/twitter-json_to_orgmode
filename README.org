@@ -1,4 +1,4 @@
-## Time-stamp: <2013-05-20 01:44:05 vk>
+## Time-stamp: <2013-05-20 02:07:46 vk>
 ## -*- coding: utf-8 -*-
 ## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
 
@@ -9,6 +9,10 @@ an [[http://orgmode.org][Org-mode]] file.
 
 Short URLs are replaced with their expanded URLs, many things are turned
 into meaningful links where possible.
+
+1. Download your [[https://blog.twitter.com/2012/your-twitter-archive][Twitter export files]]
+2. Unpack the ZIP file
+3. Convert the data using this script (see below)
 
 Example usage:
 : tweets2org.py -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps="+1"
