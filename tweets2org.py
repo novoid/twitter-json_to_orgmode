@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Time-stamp: <2013-09-14 13:38:52 vk>
+# Time-stamp: <2017-06-21 19:29:55 vk>
 
 ## TODO:
 ## * fix parts marked with «FIXXME»
@@ -36,8 +36,8 @@ Short URLs are replaced with their expanded URLs, many things are turned\n\
 into meaningful links where possible.\n\
 \n\
 Example usage:\n\
-  " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps=\"+1\"\n\
-      ... converts the Twitter export files and adds one hour to time stamps\n\
+  " + sys.argv[0] + u" -o tweets.org ~/Twitter_export_USER.json/*.js --add-to-time-stamps=\"+2\"\n\
+      ... converts the Twitter export files and adds two hours (CET) to time stamps\n\
 \n\
 For all command line options, please call: " + sys.argv[0] + u" --help\n\
 \n\
@@ -140,7 +140,7 @@ def convert_twitter_time_to_orgmode_timestamp(twitter_time, timestamp_delta):
                              "time-stamp format (again).\n" + \
                              "Expected something like \"2012-12-31 12:35:19 +0000\" but got \"" + \
                              twitter_time + "\".")
-    
+
     datetimestamp = datetime.datetime(int(components.group(TIME_YEAR_IDX)),
                                       int(components.group(TIME_MON_IDX)),
                                       int(components.group(TIME_DAY_IDX)),
