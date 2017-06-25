@@ -1,11 +1,16 @@
-## Time-stamp: <2013-05-20 02:07:46 vk>
+## Time-stamp: <2017-06-25 10:52:10 vk>
 ## -*- coding: utf-8 -*-
 ## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
 
 * tweets2org.py
 
-This python script converts the [[https://blog.twitter.com/2012/your-twitter-archive][Twitter export files]] ([[https://en.wikipedia.org/wiki/Json][JSON format]]) into
-an [[http://orgmode.org][Org-mode]] file.
+This python script converts the [[https://blog.twitter.com/2012/your-twitter-archive][Twitter export files]] ([[https://en.wikipedia.org/wiki/Json][JSON format]])
+into an [[http://orgmode.org][Org-mode]] file.
+
+Note: If you are using [[https://github.com/novoid/Memacs][Memacs]] to get stuff from various sources into
+your Org-mode you might try [[https://github.com/novoid/Memacs/blob/master/docs/memacs_twitter.org][its Twitter module]] instead of this method
+here. However, it requires you to give Twitter your phone number.
+Therefore, I do prefer the method described here.
 
 Short URLs are replaced with their expanded URLs, many things are turned
 into meaningful links where possible.
@@ -23,6 +28,8 @@ For all command line options, please call: ~tweets2org.py --help~
 - *Target group*: users who are using Twitter and Emacs Org-mode
 - Hosted on github: https://github.com/novoid/twitter-json_to_orgmode
 
+If you don't get emails with the download archive after requesting it,
+you [[http://karl-voit.at/2017/06/25/twitter-archive/][might be interested to read about how to fix that]].
 
 * Contribute!
 
